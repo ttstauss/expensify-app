@@ -1,0 +1,1 @@
+export default expenses => expenses.reduce((accumulator, { amount }) => accumulator + amount, 0)
