@@ -16,3 +16,8 @@
 .page-header__title span {
   font-weight: bold;
 }
+
+.page-header__message {
+  margin: $s-size 0 0 0;
+  font-style: italic;
+}
