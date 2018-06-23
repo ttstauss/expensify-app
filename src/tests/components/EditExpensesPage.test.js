@@ -24,12 +24,28 @@ test('should render EditExpensePage correctly', () => {
 
 test('should handle startEditExpense (onSubmit)', () => {
   wrapper.find('ExpenseForm').prop('onSubmit')(expenses[0])
-  expect(history.push).toHaveBeenLastCalledWith('/')
   expect(startEditExpense).toHaveBeenLastCalledWith(expenses[0].id, expenses[0])
+  expect(history.push).toHaveBeenLastCalledWith('/')
 })
 
-// test('should handle startRemoveExpense (onRemove)', () => {
-//   wrapper.find('button').simulate('click')
-//   expect(history.push).toHaveBeenLastCalledWith('/')
-//   expect(startRemoveExpense).toHaveBeenLastCalledWith({ id: expenses[0].id })
-// })
+test('should handle openModal', () => {
+  const modalIsOpen = true
+  wrapper.find('button').simulate('click')
+  expect(wrapper.state('modalIsOpen')).toBe(modalIsOpen)
+})
+
+test('should close modal on handleCancelRemove', () => {
+  const modalIsOpen = false
+  wrapper.instance().handleCancelRemove()
+  expect(wrapper.state('modalIsOpen')).toBe(modalIsOpen)
+})
+
+test('should handle startRemoveExpense (onRemove)', () => {
+  const modalIsOpen = false
+  const confirmRemove = true
+  wrapper.instance().handleConfirmRemove()
+  expect(wrapper.state('modalIsOpen')).toBe(modalIsOpen)
+  expect(wrapper.state('confirmRemove')).toBe(confirmRemove)
+  expect(startRemoveExpense).toHaveBeenLastCalledWith({ id: expenses[0].id })
+  expect(history.push).toHaveBeenLastCalledWith('/')
+})
