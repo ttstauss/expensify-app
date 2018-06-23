@@ -12,6 +12,9 @@
     "heroku-postbuild": "yarn run build:prod"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.0",
+    "@fortawesome/free-brands-svg-icons": "^5.1.0",
+    "@fortawesome/react-fontawesome": "^0.1.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-jest": "^23.0.1",

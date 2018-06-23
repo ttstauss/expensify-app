@@ -26,3 +26,29 @@
   display: flex;
   justify-content: space-between;
 }
+
+%button--social-shared {
+  margin: 0 0 $s-size 0;
+  transition: background .3s ease;
+  width: 100%;
+}
+
+.button--google {
+  @extend %button--social-shared;
+  background: #db3236;
+  &:hover {
+    background: lighten(#db3236, 7%)
+  }
+}
+
+.button--facebook {
+  @extend %button--social-shared;
+  background: #3B5998;
+  &:hover {
+    background: lighten(#3B5998, 7%)
+  }
+}
+
+.button--last {
+  margin: 0;
+}
